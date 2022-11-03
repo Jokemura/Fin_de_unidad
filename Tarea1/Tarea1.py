@@ -1,4 +1,13 @@
 menu = True
+
+def volerMenu():
+    print("--------------------------------------")
+    print(" Press una tecla para voler al menu  -")
+    print("--------------------------------------")
+    input()
+    menu = True
+
+
 while menu == True:
     print("---------------------------------------------------------")
     print("-                   LIBRERIA                            -")
@@ -24,6 +33,7 @@ while menu == True:
     match opc:
         case '1':
             print("hola1")
+            volerMenu()
             break
         case '2':
             print("hola2")
