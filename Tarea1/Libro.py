@@ -51,4 +51,18 @@ class Libro():
         self.autor = autor
 
 
+    # Implementar metodos aqui
 
+    # 1| Leer archivo de disco duro
+    # 2| Listar libros
+    # 3| Agregar libro
+
+    # 4| Eliminar libro
+    # 5| Buscar libro
+    # 6| Ordenar libros por título
+
+    # 7| Buscar libros por autor, editorial o género
+    # 8| Buscar libros por número de autores
+    # 9| Editar o actualizar datos de un libro
+
+    # 10| Guardar libros en archivo de disco duro
