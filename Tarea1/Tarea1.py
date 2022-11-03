@@ -1,3 +1,59 @@
+import csv
+import pandas as pd
+from csv import writer
+import os
+os.system("cls")
+
+class Libro:
+    def __init__(self, id, titulo, genero, isbn, editorial, autores):
+        self.id = id
+        self.titulo = titulo
+        self.genero = genero
+        self.isbn = isbn
+        self.editorial = editorial
+        self.autores = autores
+
+    def agregarLibros(self): #Opcion 3
+        list_data = [self.id, self.titulo,self.genero, self.isbn,self.editorial,self.autores]
+        with open('D:/Silabuz/CondicionalesBucles/libros.csv', 'a', newline='') as file:
+            writer_file = writer(file)
+            writer_file.writerow(list_data)
+            file.close()
+
+    def buscarLibro(self, opcion, palabra): #Opcion 7
+        with open("D:/Silabuz/CondicionalesBucles/libros.csv","r") as file:
+            reader = csv.DictReader(file)
+            #reader es iterable
+            for libro in reader:
+                autores = libro["autores"].split("-")
+                if opcion == 1:
+                    if libro["editorial"] == palabra:
+                        print(libro["titulo"])
+                elif opcion == 2:
+                    if libro["genero"] == palabra:
+                        print(libro["titulo"])
+                elif opcion == 3:                   
+                    for autor in autores:
+                        if autor == palabra:
+                            print(libro["titulo"])
+                   
+    def numeroAutores(self): #Opcion 8
+        with open("D:/Silabuz/CondicionalesBucles/libros.csv","r") as file:
+            reader = csv.DictReader(file)
+            #reader es iterable
+            # cont = 0
+            cant_autores = int(input("Ingrese cantidad de autores: "))
+            for libro in reader:
+                autores = libro["autores"].split("-")
+                if len(autores) == cant_autores:    
+                    print(libro["titulo"])
+                 
+    def actualizarDatos(self): #Opcion 9
+        item = 'melon'
+        data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
+        data.iat[0, 2] = item
+        data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+
 menu = True
 while menu == True:
     print("---------------------------------------------------------")
@@ -41,7 +97,12 @@ while menu == True:
             print("hola6")
             break
         case '7':
-            print("hola7")
+            print("Buscar libros por autor, editorial o género")
+            print("Opcion 1: Editorial\nOpcion 2: Genero\nOpcion 3: Autor")
+            opcion = int(input("Ingrese el numero de la opcion que desea buscar:  "))
+            palabra = input("Ingrese la palabra a buscar: ")            
+            libro = Libro(6, "marimar", "novela", "243-756-80", "pelisplus","mario-adolfo")
+            libro.buscarLibro(opcion, palabra)
             break
         case '8':
             print("hola8")
