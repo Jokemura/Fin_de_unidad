@@ -13,13 +13,6 @@ class Libro:
         self.editorial = editorial
         self.autores = autores
 
-    def agregarLibros(self): #Opcion 3
-        list_data = [self.id, self.titulo,self.genero, self.isbn,self.editorial,self.autores]
-        with open('D:/Silabuz/CondicionalesBucles/libros.csv', 'a', newline='') as file:
-            writer_file = writer(file)
-            writer_file.writerow(list_data)
-            file.close()
-
     def buscarLibro(self, opcion, palabra): #Opcion 7
         with open("D:/Silabuz/CondicionalesBucles/libros.csv","r") as file:
             reader = csv.DictReader(file)
@@ -37,12 +30,10 @@ class Libro:
                         if autor == palabra:
                             print(libro["titulo"])
                    
-    def numeroAutores(self): #Opcion 8
+    def numeroAutores(self, cant_autores): #Opcion 8
         with open("D:/Silabuz/CondicionalesBucles/libros.csv","r") as file:
             reader = csv.DictReader(file)
-            #reader es iterable
-            # cont = 0
-            cant_autores = int(input("Ingrese cantidad de autores: "))
+            #reader es iterable          
             for libro in reader:
                 autores = libro["autores"].split("-")
                 if len(autores) == cant_autores:    
@@ -101,11 +92,13 @@ while menu == True:
             print("Opcion 1: Editorial\nOpcion 2: Genero\nOpcion 3: Autor")
             opcion = int(input("Ingrese el numero de la opcion que desea buscar:  "))
             palabra = input("Ingrese la palabra a buscar: ")            
-            libro = Libro(6, "marimar", "novela", "243-756-80", "pelisplus","mario-adolfo")
+            libro = Libro(0, "", "", "", "","")
             libro.buscarLibro(opcion, palabra)
             break
         case '8':
-            print("hola8")
+            cant_autores = int(input("Ingrese cantidad de autores: "))
+            libro = Libro(0, "", "", "", "","")
+            libro.numeroAutores(cant_autores)
             break
         case '9':
             print("hola9")
