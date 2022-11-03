@@ -39,11 +39,29 @@ class Libro:
                 if len(autores) == cant_autores:    
                     print(libro["titulo"])
                  
-    def actualizarDatos(self): #Opcion 9
-        item = 'melon'
-        data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
-        data.iat[0, 2] = item
-        data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+    def actualizarDatos(self, id, item, palabra): #Opcion 9
+        if item == "titulo":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
+            data.iat[id, 1] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+        elif item == "genero":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
+            data.iat[id, 2] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+        elif item == "isbn":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
+            data.iat[id, 3] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)            
+        elif item == "editorial":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
+            data.iat[id, 4] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)            
+        elif item == "autores":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
+            data.iat[id, 5] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+
+         
 
 menu = True
 while menu == True:
@@ -101,7 +119,11 @@ while menu == True:
             libro.numeroAutores(cant_autores)
             break
         case '9':
-            print("hola9")
+            id = int(input("Ingrese el id del libro que desea editar: "))
+            item = input("Ingrese el atributo que desea cambiar: ")
+            palabra = input("Ingrese la data a actualizar: ")
+            libro = Libro(0, "", "", "", "","")
+            libro.actualizarDatos(id,item, palabra)
             break
         case '10':
             print("hola10")
