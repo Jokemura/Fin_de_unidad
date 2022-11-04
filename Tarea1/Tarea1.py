@@ -1,9 +1,13 @@
+from Libro import *
+from Colors import *
+
 menu = True
 
+
 def volerMenu():
-    print("--------------------------------------")
+    print(YELLOW + "--------------------------------------")
     print(" Press una tecla para voler al menu  -")
-    print("--------------------------------------")
+    print("--------------------------------------" + RESET)
     input()
     menu = True
 
@@ -32,15 +36,14 @@ while menu == True:
 
     match opc:
         case '1':
-            print("hola1")
+            Libro.leerCsv()
             volerMenu()
-            break
         case '2':
-            print("hola2")
-            break
+            Libro.listarlibros()
+
         case '3':
-            print("hola3")
-            break
+            Libro.agregarLibros()
+            # break
         case '4':
             print("hola4")
             break
