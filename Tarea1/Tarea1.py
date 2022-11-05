@@ -4,6 +4,14 @@ from csv import writer
 import os
 os.system("cls")
 
+RED = '\033[31m'
+GREEN = '\033[32m'
+YELLOW = '\033[33m'
+BLUE = '\033[34m'
+MAGENTA = '\033[35m'
+CYAN = '\033[36m' 
+RESET = '\033[39m'
+
 class Libro:
     def __init__(self, id, titulo, genero, isbn, editorial, autores):
         self.id = id
@@ -19,16 +27,13 @@ class Libro:
             #reader es iterable
             for libro in reader:
                 autores = libro["autores"].split("-")
-                if opcion == 1:
-                    if libro["editorial"] == palabra:
-                        print(libro["titulo"])
-                elif opcion == 2:
-                    if libro["genero"] == palabra:
-                        print(libro["titulo"])
-                elif opcion == 3:                   
-                    for autor in autores:
-                        if autor == palabra:
-                            print(libro["titulo"])
+                if opcion == 1 and libro["editorial"] == palabra:
+                        print(GREEN + libro["titulo"] + RESET)
+                elif opcion == 2 and libro["genero"] == palabra:
+                        print(GREEN + libro["titulo"] + RESET)                
+                for autor in autores:
+                    if opcion == 3 and autor == palabra:
+                            print(GREEN + libro["titulo"] + RESET)
                    
     def numeroAutores(self, cant_autores): #Opcion 8
         with open("D:/Silabuz/CondicionalesBucles/libros.csv","r") as file:
@@ -106,12 +111,16 @@ while menu == True:
             print("hola6")
             break
         case '7':
-            print("Buscar libros por autor, editorial o género")
-            print("Opcion 1: Editorial\nOpcion 2: Genero\nOpcion 3: Autor")
+            print("-"*60)
+            print(YELLOW +"Ingrese solamente el numero de la opcion a buscar: "+ RESET)           
+            print(YELLOW + "Opcion 1: Editorial\nOpcion 2: Genero\nOpcion 3: Autor" + RESET)
+            print("-"*60)
             opcion = int(input("Ingrese el numero de la opcion que desea buscar:  "))
-            palabra = input("Ingrese la palabra a buscar: ")            
+            print("-"*60)
+            palabra = input("Ingrese la palabra a buscar: ")  
+            print("-"*60)          
             libro = Libro(0, "", "", "", "","")
-            libro.buscarLibro(opcion, palabra)
+            libro.buscarLibro(opcion, palabra.lower())            
             break
         case '8':
             cant_autores = int(input("Ingrese cantidad de autores: "))
