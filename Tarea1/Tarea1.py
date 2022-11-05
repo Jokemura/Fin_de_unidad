@@ -6,10 +6,7 @@ os.system("cls")
 
 RED = '\033[31m'
 GREEN = '\033[32m'
-YELLOW = '\033[33m'
-BLUE = '\033[34m'
-MAGENTA = '\033[35m'
-CYAN = '\033[36m' 
+YELLOW = '\033[33m' 
 RESET = '\033[39m'
 
 class Libro:
@@ -42,29 +39,34 @@ class Libro:
             for libro in reader:
                 autores = libro["autores"].split("-")
                 if len(autores) == cant_autores:    
-                    print(libro["titulo"])
+                    print(GREEN + libro["titulo"] + RESET)  
                  
     def actualizarDatos(self, id, item, palabra): #Opcion 9
         if item == "titulo":
             data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
             data.iat[id, 1] = palabra
             data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+            print(GREEN + "Se realizo el cambio con exito"+ RESET)
         elif item == "genero":
             data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
             data.iat[id, 2] = palabra
             data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+            print(GREEN + "Se realizo el cambio con exito"+ RESET)
         elif item == "isbn":
             data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
             data.iat[id, 3] = palabra
-            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)            
+            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+            print(GREEN + "Se realizo el cambio con exito"+ RESET)           
         elif item == "editorial":
             data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
             data.iat[id, 4] = palabra
-            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)            
+            data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+            print(GREEN + "Se realizo el cambio con exito"+ RESET)            
         elif item == "autores":
             data = pd.read_csv("D:/Silabuz/CondicionalesBucles/libros.csv")
             data.iat[id, 5] = palabra
             data.to_csv("D:/Silabuz/CondicionalesBucles/libros.csv", index=False)
+            print(GREEN + "Se realizo el cambio con exito"+ RESET)
 
          
 
@@ -123,13 +125,18 @@ while menu == True:
             libro.buscarLibro(opcion, palabra.lower())            
             break
         case '8':
-            cant_autores = int(input("Ingrese cantidad de autores: "))
+            print("-"*60)
+            cant_autores = int(input(YELLOW + "Ingrese cantidad de autores: "+ RESET))
+            print("-"*60)
             libro = Libro(0, "", "", "", "","")
             libro.numeroAutores(cant_autores)
             break
         case '9':
-            id = int(input("Ingrese el id del libro que desea editar: "))
-            item = input("Ingrese el atributo que desea cambiar: ")
+            print("-"*60)
+            id = int(input(YELLOW +"Ingrese el id del libro que desea editar: "+ RESET))
+            print("-"*60)
+            item = input(YELLOW +"Ingrese el atributo que desea cambiar: "+ RESET)
+            print("-"*60)
             palabra = input("Ingrese la data a actualizar: ")
             libro = Libro(0, "", "", "", "","")
             libro.actualizarDatos(id,item, palabra)
