@@ -177,7 +177,29 @@ class Libro():
         #     print(p, Libro.libros[p])
 
 # 4| Eliminar libro
-    
+    @staticmethod
+    def eliminar():
+        op= True
+        print("----------------------------------------------------------------------")
+        print("- Eliminar libros                                                   -")
+        print("----------------------------------------------------------------------")
+        while op == True:
+            entrada = input('Ingrese el nombre Libro a ELIMINIAR 1|si 2|no: ')
+        while entrada not in  ('1', '2'):
+            entrada = input('Ingrese el nombre Libro a ELIMINIAR 1|si 2|no: ')
+
+        if entrada == '1':
+            book= input('Ingrese nombre del Libro: \n')
+                
+            for k1, v1 in list(Libro.libros.items()):
+                
+                    if v1['titulo'] == book:
+                        del Libro.libros[k1]
+                        print('Libro eliminado exitosamente')
+                    else:
+                        print('Este Libro no esta Listado, Intente nuevamente')
+        else:
+            op==False
 
 # 5| Buscar libro
 
