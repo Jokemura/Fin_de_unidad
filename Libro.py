@@ -202,7 +202,46 @@ class Libro():
             op==False
 
 # 5| Buscar libro
+    @staticmethod
+    def buscar_libro():
+        opcion = True
+        print("----------------------------------------------------------------------")
+        print("- Buscar libros                                                   -")
+        print("----------------------------------------------------------------------")
+        while opcion == True:
+            op = input("Desea Buscar un nuevo libro por 1|Titulo 2|ISBN: ")
+            while op not in ('1', '2'):
+                op = input("Desea Buscar un nuevo libro por  1|Titulo 2|ISBN: ")
 
+
+            if op == '1':
+                term_search=input('Ingrese el Titulo del Libro: \n')
+                libros_filtrados_indexes = []
+                try:
+                    for i, j in Libro.libros.items():
+                        if term_search == j['titulo']:
+                            libros_filtrados_indexes.append(i)
+                            libros = [Libro.libros[i] for i in libros_filtrados_indexes]
+                            print(tabulate(libros, headers="keys", tablefmt="pretty"))                    
+                        else:
+                            pass
+                except:
+                    print("An exception occurred")
+            elif op == '2':
+                term_search2=input('Ingrese el ISBN del Libro: \n')
+                isbn_filtrados_indexes = []
+                try:
+                    for i, j in Libro.libros.items():
+                        if term_search2 == j['isbn']:
+                            isbn_filtrados_indexes.append(i)
+                            isbns = [Libro.libros[i] for i in isbn_filtrados_indexes]
+                            print(tabulate(isbns, headers="keys", tablefmt="pretty"))                    
+                        else:
+                            pass
+                except:
+                    print('An exception ocurred')
+            else:
+                opcion = False
 # 6| Ordenar libros por título
 
 # 7| Buscar libros por autor, editorial o género
