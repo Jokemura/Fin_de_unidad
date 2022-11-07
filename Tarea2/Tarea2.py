@@ -25,10 +25,10 @@ while menu == True:
             listarForma()
             #break
         case '3':
-            listarHabitat()
-            #break
+            print('hola3')
+            break
         case '4':
-            print("hola4")
+            listarHabitat()
             break
         case '5':
             print("hola5")
