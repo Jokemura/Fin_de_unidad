@@ -45,20 +45,20 @@ while menu == True:
             Libro.agregarLibros()
             # break
         case '4':
-            print("hola4")
-            break
+            Libro.eliminar()
+            #break
         case '5':
-            print("hola5")
-            break
+            Libro.buscar_libro()
+            #break
         case '6':
-            print("hola6")
-            break
+            Libro.ordenar_titulos()
+            #break
         case '7':
-            print("hola7")
-            break
+            Libro.buscarLibros()
+            #break
         case '8':
-            print("hola8")
-            break
+            Libro.numeroAutores()
+            #break
         case '9':
             print("hola9")
             break
