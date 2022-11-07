@@ -87,7 +87,7 @@ class Libro():
 
         # Libro.libros = [*csv.DictReader(open('D:/prueba.csv'))]
         try:
-            with open('Fin_de_unidad/Tarea1/Libros.csv', 'r') as data_file:
+            with open('../Tarea1/Libros.csv', 'r') as data_file:
 
                 data = csv.DictReader(data_file, delimiter=",")
                 for row in data:
@@ -244,9 +244,9 @@ class Libro():
             else:
                 opcion = False
 # 6| Ordenar libros por título
-    # def ordenar_titulos():
-    #     for k,v in Libro.libros.items():
-    #         sorted_values = ( sorted(v.items()), key=lambda x:x[1])   
+    def ordenar_titulos():
+        for k,v in Libro.libros.items():
+            sorted_values = ( sorted(v.items()), key=lambda x:x[1])   
             
 
 
