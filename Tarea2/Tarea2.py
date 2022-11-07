@@ -20,13 +20,13 @@ while menu == True:
     match opc:
         case '1':
             listarGeneracion()
-            break
+            #break
         case '2':
-            print("hola2")
-            break
+            listarForma()
+            #break
         case '3':
-            print("hola3")
-            break
+            listarHabitat()
+            #break
         case '4':
             print("hola4")
             break
