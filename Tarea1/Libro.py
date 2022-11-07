@@ -247,7 +247,7 @@ class Libro():
     def ordenar_titulos():
         for k,v in Libro.libros.items():
             sorted_values = sorted(v.items(), key=lambda x:x[1])
-            
+            print()
 
 
 # 7| Buscar libros por autor, editorial o género
