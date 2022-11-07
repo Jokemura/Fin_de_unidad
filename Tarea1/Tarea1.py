@@ -54,7 +54,8 @@ while menu == True:
             print("hola6")
             break
         case '7':
-            print("hola7")
+            palabra = input("Ingrese el autor, editorial o genero que desea buscar: ")
+            Libro.buscarLibros(palabra)
             break
         case '8':
             print("hola8")

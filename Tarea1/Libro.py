@@ -87,7 +87,7 @@ class Libro():
 
         # Libro.libros = [*csv.DictReader(open('D:/prueba.csv'))]
         try:
-            with open('Fin_de_unidad/Tarea1/Libros.csv', 'r') as data_file:
+            with open('D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv', 'r') as data_file:
                 data = csv.DictReader(data_file, delimiter=",")
                 for row in data:
                     item = Libro.libros.get(row['id'],
@@ -106,6 +106,7 @@ class Libro():
     # 2| Listar libros
     @staticmethod
     def listarlibros():
+        print(Libro.libros)
         print("------------------------------------------------------------------------")
         print("- Libros registrados                                                   -")
         print("------------------------------------------------------------------------")
@@ -183,15 +184,18 @@ class Libro():
 # 6| Ordenar libros por título
 
 # 7| Buscar libros por autor, editorial o género
-
-
-
-
-
-
-
-
-
+    def buscarLibros(palabra): #Opcion 7
+        data = Libro.libros
+        list_id = [codigo for codigo in data]
+        for codigo in list_id:
+            autores = data[codigo]["autor"].split(",")
+            if data[codigo]["editorial"] == palabra:
+                print(data[codigo]["titulo"])
+            elif data[codigo]["genero"] == palabra:
+                 print(data[codigo]["titulo"])           
+            for autor_buscado in autores:
+                if autor_buscado == palabra:
+                    print(data[codigo]["titulo"])
 
 # 8| Buscar libros por número de autores
 # 9| Editar o actualizar datos de un libro
