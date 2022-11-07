@@ -58,7 +58,8 @@ while menu == True:
             Libro.buscarLibros(palabra)
             break
         case '8':
-            print("hola8")
+            cant_autores = int(input("Ingrese cantidad de autores: "))
+            Libro.numeroAutores(cant_autores)
             break
         case '9':
             print("hola9")

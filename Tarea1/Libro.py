@@ -87,7 +87,7 @@ class Libro():
 
         # Libro.libros = [*csv.DictReader(open('D:/prueba.csv'))]
         try:
-            with open('../Tarea1/Libros.csv', 'r') as data_file:
+            with open('D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv', 'r') as data_file:
                 data = csv.DictReader(data_file, delimiter=",")
                 for row in data:
                     item = Libro.libros.get(row['id'],
@@ -106,7 +106,6 @@ class Libro():
     # 2| Listar libros
     @staticmethod
     def listarlibros():
-        print(Libro.libros)
         print("------------------------------------------------------------------------")
         print("- Libros registrados                                                   -")
         print("------------------------------------------------------------------------")
@@ -198,6 +197,16 @@ class Libro():
                     print(data[codigo]["titulo"])
 
 # 8| Buscar libros por número de autores
+    def numeroAutores(cant_autores): #Opcion 8
+        #reader es iterable
+        # cont = 0
+        data = Libro.libros
+        list_id = [codigo for codigo in data]
+        for codigo in list_id:
+            autores = data[codigo]["autor"].split(",")
+            if len(autores) == cant_autores:    
+                print(data[codigo]["titulo"])    
+
 # 9| Editar o actualizar datos de un libro
 
 # 10| Guardar libros en archivo de disco duro
