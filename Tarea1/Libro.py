@@ -231,3 +231,13 @@ class Libro():
             data.to_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv", index=False)
 
 # 10| Guardar libros en archivo de disco duro
+    def guardarLibros():
+        try:
+            item = Libro.agregarLibros()
+            with open('D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv', 'w') as data_file:
+                data = csv.DictReader(item, delimiter=",")
+            print(GREEN + "--------------------------------------")
+            print("- Registros cargados correctamente   -")
+            print("--------------------------------------" + RESET)
+        except:
+            print("An exception occurred")

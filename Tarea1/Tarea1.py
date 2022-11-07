@@ -68,6 +68,6 @@ while menu == True:
             Libro.actualizarDatos(id, item, palabra)           
             break
         case '10':
-            print("hola10")
+            Libro.guardarLibros()
             break
 
