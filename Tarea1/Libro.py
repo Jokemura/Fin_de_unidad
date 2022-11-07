@@ -3,7 +3,7 @@ import csv
 from tabulate import tabulate
 
 from Colors import *
-
+import pandas as pd
 
 class Libro():
     id = ''
@@ -208,5 +208,26 @@ class Libro():
                 print(data[codigo]["titulo"])    
 
 # 9| Editar o actualizar datos de un libro
+    def actualizarDatos(id: int, item, palabra): #Opcion 9
+        if item == "titulo":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv")
+            data.iat[id-1, 1] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv", index=False)
+        elif item == "genero":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv")
+            data.iat[id-1, 2] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv", index=False)
+        elif item == "isbn":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv")
+            data.iat[id-1, 3] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv", index=False)            
+        elif item == "editorial":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv")
+            data.iat[id-1, 4] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv", index=False)            
+        elif item == "autores":
+            data = pd.read_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv")      
+            data.iat[id-1, 5] = palabra
+            data.to_csv("D:/Silabuz/CondicionalesBucles/01/Fin_de_unidad/Tarea1/Libros.csv", index=False)
 
 # 10| Guardar libros en archivo de disco duro
