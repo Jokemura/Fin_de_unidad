@@ -177,13 +177,81 @@ class Libro():
         #     print(p, Libro.libros[p])
 
 # 4| Eliminar libro
+    @staticmethod
+    def eliminar():
+        op= True
+        print("----------------------------------------------------------------------")
+        print("- Eliminar libros                                                   -")
+        print("----------------------------------------------------------------------")
+        while op == True:
+            entrada = input('Ingrese el nombre Libro a ELIMINIAR 1|si 2|no: ')
+        while entrada not in  ('1', '2'):
+            entrada = input('Ingrese el nombre Libro a ELIMINIAR 1|si 2|no: ')
+
+        if entrada == '1':
+            book= input('Ingrese nombre del Libro: \n')
+                
+            for k1, v1 in list(Libro.libros.items()):
+                
+                    if v1['titulo'] == book:
+                        del Libro.libros[k1]
+                        print('Libro eliminado exitosamente')
+                    else:
+                        print('Este Libro no esta Listado, Intente nuevamente')
+        else:
+            op==False
 
 # 5| Buscar libro
+    @staticmethod
+    def buscar_libro():
+        opcion = True
+        print("----------------------------------------------------------------------")
+        print("- Buscar libros                                                   -")
+        print("----------------------------------------------------------------------")
+        while opcion == True:
+            op = input("Desea Buscar un nuevo libro por 1|Titulo 2|ISBN: ")
+            while op not in ('1', '2'):
+                op = input("Desea Buscar un nuevo libro por  1|Titulo 2|ISBN: ")
 
+
+            if op == '1':
+                term_search=input('Ingrese el Titulo del Libro: \n')
+                libros_filtrados_indexes = []
+                try:
+                    for i, j in Libro.libros.items():
+                        if term_search == j['titulo']:
+                            libros_filtrados_indexes.append(i)
+                            libros = [Libro.libros[i] for i in libros_filtrados_indexes]
+                            print(tabulate(libros, headers="keys", tablefmt="pretty"))                    
+                        else:
+                            pass
+                except:
+                    print("An exception occurred")
+            elif op == '2':
+                term_search2=input('Ingrese el ISBN del Libro: \n')
+                isbn_filtrados_indexes = []
+                try:
+                    for i, j in Libro.libros.items():
+                        if term_search2 == j['isbn']:
+                            isbn_filtrados_indexes.append(i)
+                            isbns = [Libro.libros[i] for i in isbn_filtrados_indexes]
+                            print(tabulate(isbns, headers="keys", tablefmt="pretty"))                    
+                        else:
+                            pass
+                except:
+                    print('An exception ocurred')
+            else:
+                opcion = False
 # 6| Ordenar libros por título
+    def ordenar_titulos():
+        for k,v in Libro.libros.items():
+            sorted_values = ( sorted(v.items()), key=lambda x:x[1])   
+            
+
 
 # 7| Buscar libros por autor, editorial o género
 # 8| Buscar libros por número de autores
 # 9| Editar o actualizar datos de un libro
 
 # 10| Guardar libros en archivo de disco duro
+    
