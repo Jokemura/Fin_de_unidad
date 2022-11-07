@@ -1,3 +1,4 @@
+from ApiPokemon import *
 menu = True
 while menu == True:
     print("---------------------------------------------------------")
@@ -18,7 +19,7 @@ while menu == True:
 
     match opc:
         case '1':
-            print("hola1")
+            listarGeneraciion()
             break
         case '2':
             print("hola2")
