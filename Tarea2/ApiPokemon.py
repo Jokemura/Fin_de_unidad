@@ -51,7 +51,19 @@ def listarHabitat():
     
     print(tabulate(listaShape, headers="keys", tablefmt='pretty'))
 
-
+def listartipo():
+    listaShape=[]
+    url = "https://pokeapi.co/api/v2/type/"
+    shape=input("Ingresa un Tipo para ver los Pokemon Ejem: (water, ghost, rock, normal): ")
+    res = requests.get(url+shape)
+    data=res.json()
+    listaShape=data['pokemon']
+    # print(listaPokemonsGeneracion)
+    print("------------------------------------------------------------------------")
+    print(f"-             POKEMONES DE TIPO {shape}               -")
+    print("------------------------------------------------------------------------")
+    
+    print(tabulate(listaShape, headers="keys", tablefmt='pretty'))
 
 
     # listaPokemonsGeneracion=data['pokemon_species']
