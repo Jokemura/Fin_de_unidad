@@ -63,7 +63,10 @@ while menu == True:
             Libro.numeroAutores()
             #break
         case '9':
-            print("hola9")
+            id = int(input("Ingrese id del libro que desea cambiar: "))
+            item = input("Ingrese item del campo que desee editar: ")
+            palabra = input("Ingrese la palabra: ")
+            Libro.actualizarDatos(id, item, palabra)           
             break
         case '10':
             print("hola10")
