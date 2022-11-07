@@ -46,21 +46,22 @@ while menu == True:
             # break
         case '4':
             Libro.eliminar()
-            
+
         case '5':
             Libro.buscar_libro()
-            
+            #break
+        case '5':
+            Libro.buscar_libro()
+            #break
         case '6':
-            print("hola6")
-            break
+            Libro.ordenar_titulos()
+            #break
         case '7':
-            palabra = input("Ingrese el autor, editorial o genero que desea buscar: ")
-            Libro.buscarLibros(palabra)
-            break
+            Libro.buscarLibros()
+            #break
         case '8':
-            cant_autores = int(input("Ingrese cantidad de autores: "))
-            Libro.numeroAutores(cant_autores)
-            break
+            Libro.numeroAutores()
+            #break
         case '9':
             print("hola9")
             break
