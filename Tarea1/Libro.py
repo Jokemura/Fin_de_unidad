@@ -87,7 +87,7 @@ class Libro():
 
         # Libro.libros = [*csv.DictReader(open('D:/prueba.csv'))]
         try:
-            with open('Fin_de_unidad/Tarea1/Libros.csv', 'r') as data_file:
+            with open('../Tarea1/Libros.csv', 'r') as data_file:
                 data = csv.DictReader(data_file, delimiter=",")
                 for row in data:
                     item = Libro.libros.get(row['id'],
