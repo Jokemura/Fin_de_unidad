@@ -19,7 +19,7 @@ while menu == True:
 
     match opc:
         case '1':
-            listarGeneraciion()
+            listarGeneracion()
             break
         case '2':
             print("hola2")
