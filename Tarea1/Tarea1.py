@@ -54,10 +54,12 @@ while menu == True:
             print("hola6")
             break
         case '7':
-            print("hola7")
+            palabra = input("Ingrese el autor, editorial o genero que desea buscar: ")
+            Libro.buscarLibros(palabra)
             break
         case '8':
-            print("hola8")
+            cant_autores = int(input("Ingrese cantidad de autores: "))
+            Libro.numeroAutores(cant_autores)
             break
         case '9':
             print("hola9")
